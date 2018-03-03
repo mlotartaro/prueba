@@ -1,0 +1,60 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+
+
+user: <input type="text" id="user" name=""> <p>
+clave: <input type="password" id="clave" name=""> <p>
+correo: <input type="text" id="correo" name=""> <p>
+  <input type="button"  value="Aceptar" onclick="aceptar();" name="">
+<p><input type="button" value="Atras"  onclick="atras();" name="">
+
+</body>
+
+<script type="text/javascript">
+  
+function atras(){
+  window.open("C:/Users/arjomo1/Desktop/loginCF.html");
+  self.close();
+}
+
+
+function aceptar(){
+
+var varUser = document.getElementById("user").value;
+var varClave = document.getElementById("clave").value;
+var varCorreo = document.getElementById("correo").value;
+
+var database = firebase.database();
+firebase.database().ref("usuarios/"+varUser).update({
+user: varUser,
+clave: varClave,
+correo: varCorreo
+});
+
+
+}
+
+</script>
+
+  
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAIfwtvs04n9ysR0ncwmbx4pce-Pwr8xCE",
+    authDomain: "jvsc-838dc.firebaseapp.com",
+    databaseURL: "https://jvsc-838dc.firebaseio.com",
+    projectId: "jvsc-838dc",
+    storageBucket: "jvsc-838dc.appspot.com",
+    messagingSenderId: "646531753420"
+  };
+  firebase.initializeApp(config);
+</script>
+</html>
